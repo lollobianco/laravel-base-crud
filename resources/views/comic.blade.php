@@ -1,5 +1,8 @@
 @extends('layouts.app')
-@section('page-title', "Comic DC-Comics")
+
+@section('page-title')
+    {{$single_comic['title']}}
+@endsection
 
 @section('main')
 

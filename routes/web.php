@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'PageController@index')->name('home');
 
-    $comics = config('comics');
-
-    return view('home', compact('comics'));
-})->name('home');
+Route::resource('/comic', ComicController::class);
 
 
 
-Route::get('/comic/{id}', function ($id) {
 
-    $comics = config('comics');
 
-    if( is_numeric($id) && $id >= 0 && $id < count($comics) ){
-        $single_comic = $comics[$id];
-    } else {
-        abort(404);
-    }
 
-    return view('comic', compact('single_comic'));
-})->name('comic');
+
+// Route::get('/comic/{id}', function ($id) {
+
+//     $comics = config('comics');
+
+//     if( is_numeric($id) && $id >= 0 && $id < count($comics) ){
+//         $single_comic = $comics[$id];
+//     } else {
+//         abort(404);
+//     }
+
+//     return view('comic', compact('single_comic'));
+// })->name('comic');
 
