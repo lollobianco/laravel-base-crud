@@ -4,7 +4,7 @@
 @section('main')
     <div class="comics-section">
 
-        <a href=""><button class="add-button">ADD COMIC</button></a>
+        <a href="{{route('comics.create')}}"><button class="add-button">ADD COMIC</button></a>
 
         <div class="container py-5">
 
