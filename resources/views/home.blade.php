@@ -10,10 +10,10 @@
 
             <div class="d-flex flex-wrap">
 
-            @foreach ($comics as $id => $element)
+            @foreach ($comics as $element)
 
               <div class="card-container d-flex flex-column">
-                <a href="{{route('comics.show', $id )}}">
+                <a href="{{route('comics.show', $element->id )}}">
                   <div class="card-image mb-3"> <img class="image-comic" src="{{$element['thumb']}}" alt=""></div>
                   <div class="card-text text-white mb-4">{{$element['title']}}</div>
                 </a>
