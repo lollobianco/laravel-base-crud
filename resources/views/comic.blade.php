@@ -26,7 +26,7 @@
 
                             <div class="d-flex justify-content-between pe-4">
 
-                                <div>U.S. Price: {{$single_comic['price']}}</div>
+                                <div>U.S. Price: {{$single_comic['price']}} $</div>
 
                                 <div>AVAILABLE</div>
 
@@ -35,11 +35,21 @@
                         </div>
 
                         <div class="col-3 py-3 ps-4 check-availability">Check Availability</div>
-                        
+
                     </div>
 
                     <div>
                         <p class="mt-3">{{$single_comic['description']}}</p>
+                    </div>
+
+                    <div class="mt-3">
+                        <div>Sale Date: {{$single_comic['sale_date']}}</div>
+
+                        <div>Type: {{$single_comic['type']}}</div>
+                    </div>
+
+                    <div>
+
                     </div>
 
                 </div>
@@ -62,7 +72,7 @@
 
     </section>
 
-    <section class="info2-section">
+    {{-- <section class="info2-section">
 
         <div class="container d-flex">
 
@@ -77,17 +87,17 @@
                     <div class="d-flex py-2">
 
                         <div class="d-block col-3">Art by:</div>
-                        
+
                         <div class="col-8 text-primary">
                         @foreach ($single_comic['artists'] as $element)
-                            
+
                             {{$element}},
-                            
+
                         @endforeach
                         </div>
 
                     </div>
-                    
+
                 </div>
 
 
@@ -96,19 +106,19 @@
                     <div class="d-flex py-2">
 
                         <div class="d-block col-3">Written by:</div>
-                        
+
                         <div class="col-8 text-primary">
                         @foreach ($single_comic['writers'] as $element)
-                            
+
                             {{$element}},
-                            
+
                         @endforeach
                         </div>
 
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
             <div class="col-6 right2 d-flex flex-column">
@@ -136,9 +146,9 @@
 
         </div>
 
-    </section>
+    </section> --}}
 
-    <section>
+    <section class="prefooter-section">
 
         <div class="container">
 

@@ -1,5 +1,6 @@
 .comics-section{
    background-color: #1C1C1C;
+   position: relative;
 }
 
 .card-container{
@@ -22,12 +23,23 @@
    font-weight: 800;
 }
 
+.add-button{
+    background-color: #0182F9;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-weight: 800;
+    position: absolute;
+    top: -30px;
+    left: 300px;
+ }
+
 .blue-bg {
    background-color: #0282f9;
    padding: 30px 0;
    color: white;
  }
- 
+
  #blue-section-container {
    width: 75%;
    margin: 0 auto;
@@ -35,39 +47,39 @@
    align-items: center;
    justify-content: space-between;
  }
- 
+
  .image {
    width: 20%;
    margin-right: 20px;
  }
- 
+
  .image-svg {
    width: 20%;
  }
- 
+
  .image-locator {
    width: 13%;
  }
- 
+
  .center{
    display: flex;
    align-items: center;
    justify-content: space-between;
    width: calc(100%/5);
  }
- 
+
  .element{
    display: flex;
    align-items: center;
    justify-content: center;
  }
- 
+
  .center-full {
    display: flex;
    align-items: center;
    justify-content: center;
  }
- 
+
  span{
    font-size: 0.9rem;
  }

@@ -4,6 +4,8 @@
 @section('main')
     <div class="comics-section">
 
+        <a href=""><button class="add-button">ADD COMIC</button></a>
+
         <div class="container py-5">
 
             <div class="d-flex flex-wrap">
@@ -16,7 +18,7 @@
                   <div class="card-text text-white mb-4">{{$element['title']}}</div>
                 </a>
               </div>
-            
+
             @endforeach
 
             </div>
@@ -32,7 +34,7 @@
     <div class="blue-bg center-full">
         <div id="blue-section-container" class="center-full">
           <div class="center">
-  
+
             <div class="element">
               <img
                 class="image"
@@ -42,7 +44,7 @@
               <span>DIGITAL COMICS</span>
             </div>
           </div>
-  
+
           <div class="center">
             <div class="element">
               <img
@@ -53,7 +55,7 @@
               <span>DC MERCHANDISE</span>
             </div>
           </div>
-  
+
           <div class="center">
             <div class="element">
               <img
@@ -64,7 +66,7 @@
               <span>SUBSRIPTION</span>
             </div>
           </div>
-  
+
           <div class="center">
             <div class="element">
               <img
@@ -75,11 +77,11 @@
               <span>COMIC SHOP LOCATOR</span>
             </div>
           </div>
-  
+
           <div class="center">
             <div class="element">
               <img
-                class="image image-svg" 
+                class="image image-svg"
                 src="{{asset('images/buy-dc-power-visa.svg')}}"
                 alt="Digital Comics"
               />
