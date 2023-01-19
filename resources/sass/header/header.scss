@@ -1,0 +1,30 @@
+.jumbo-container{
+   background-image: url('../images/jumbotron.jpg');
+   background-size: cover;
+   height: 400px;
+}
+
+a{
+   color: black;
+   text-decoration: none;
+}
+
+a:hover{
+   color: #0182F9;
+}
+
+.blue-section{
+   height: 20px;
+   background-color: #0182F9;
+}
+
+.fs-xxs{
+   font-size: 0.7rem;
+}
+
+.search{
+   border-top: 0;
+   border-left: 0;
+   border-right: 0;
+   border-color: #0182F9;
+}
