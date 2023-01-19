@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{$single_comic['title']}}
+    {{$comics['title']}}
 @endsection
 
 @section('main')
@@ -13,7 +13,7 @@
         <div class="container">
 
             <div class="d-flex flex-column cover">
-                <img src="{{$single_comic['thumb']}}" alt="">
+                <img src="{{$comics['thumb']}}" alt="">
                 <div class="gallery">VIEW GALLERY</div>
             </div>
 
@@ -21,7 +21,7 @@
 
                 <div class="col-8 left-info d-flex flex-column">
 
-                    <h1 class="comic-title">{{$single_comic['title']}}</h1>
+                    <h1 class="comic-title">{{$comics['title']}}</h1>
 
                     <div class="green-bar mt-3 px-4 d-flex">
 
@@ -29,7 +29,7 @@
 
                             <div class="d-flex justify-content-between pe-4">
 
-                                <div>U.S. Price: {{$single_comic['price']}} $</div>
+                                <div>U.S. Price: {{$comics['price']}} $</div>
 
                                 <div>AVAILABLE</div>
 
@@ -42,13 +42,13 @@
                     </div>
 
                     <div>
-                        <p class="mt-3">{{$single_comic['description']}}</p>
+                        <p class="mt-3">{{$comics['description']}}</p>
                     </div>
 
                     <div class="mt-3">
-                        <div>Sale Date: {{$single_comic['sale_date']}}</div>
+                        <div>Sale Date: {{$comics['sale_date']}}</div>
 
-                        <div>Type: {{$single_comic['type']}}</div>
+                        <div>Type: {{$comics['type']}}</div>
                     </div>
 
                     <div>
@@ -92,7 +92,7 @@
                         <div class="d-block col-3">Art by:</div>
 
                         <div class="col-8 text-primary">
-                        @foreach ($single_comic['artists'] as $element)
+                        @foreach ($comics['artists'] as $element)
 
                             {{$element}},
 

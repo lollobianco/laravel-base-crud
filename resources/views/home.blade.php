@@ -13,7 +13,7 @@
             @foreach ($comics as $id => $element)
 
               <div class="card-container d-flex flex-column">
-                <a href="{{ route('comic', compact('id')) }}">
+                <a href="{{route('comic')}}">
                   <div class="card-image mb-3"> <img class="image-comic" src="{{$element['thumb']}}" alt=""></div>
                   <div class="card-text text-white mb-4">{{$element['title']}}</div>
                 </a>
