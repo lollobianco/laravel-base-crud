@@ -36,11 +36,25 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $request->validate(
+
+            [
+                'title' => 'required|max:50',
+                'description' => 'required',
+                'price' => 'required|max:7',
+                'series' => 'required|max:50',
+                'sale_date' => 'required|max:10',
+                'type' => 'required|max:20',
+            ]
+
+        );
+
         $new_record = new Comic();
         $new_record->fill($data);
         $new_record->save();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', "You have successfully added: $new_record->title");
     }
 
     /**
@@ -83,9 +97,8 @@ class ComicController extends Controller
             [
                 'title' => 'required|max:50',
                 'description' => 'required',
-                'thumb' => 'required',
                 'price' => 'required|max:7',
-                'series' => 'required|max:20',
+                'series' => 'required|max:50',
                 'sale_date' => 'required|max:10',
                 'type' => 'required|max:20',
             ]

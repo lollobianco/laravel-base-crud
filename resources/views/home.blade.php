@@ -4,7 +4,9 @@
 @section('main')
   <div class="comics-section">
 
-    <a href="{{ route('comics.create') }}"><button class="add-button">ADD COMIC</button></a>
+    <div class="position-add-button container">
+      <a href="{{ route('comics.create') }}"><button class="add-button">ADD COMIC</button></a>
+    </div>
 
     @if (session('success'))
       <div class="container d-flex justify-content-center pt-5">

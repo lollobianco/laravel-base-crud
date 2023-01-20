@@ -20,6 +20,14 @@
 
         <div class="col-8 left-info d-flex flex-column">
 
+          <div>
+            @if (session('success'))
+              <div class="alert alert-success my-3">
+                {{ session('success') }}
+              </div>
+            @endif
+          </div>
+
           <h1 class="comic-title">{{ $comics['title'] }}</h1>
 
           <div class="green-bar mt-3 px-4 d-flex">
@@ -50,26 +58,24 @@
             <div>Type: {{ $comics['type'] }}</div>
           </div>
 
-          <div class="d-felx">
+          <div class="d-flex">
             <a href="{{ route('comics.edit', $comics->id) }}"><button type="button"
                 class="btn btn-outline-warning mt-4 me-2"">Modify Comic</button></a>
-            
-            <form action="{{route('comics.destroy', $comics->id)}}" method="POST">
+
+            <div>
+
+              <form action="{{ route('comics.destroy', $comics->id) }}" method="POST">
 
                 @csrf
                 @method('DELETE')
 
                 <button type="submit" class="btn btn-outline-danger mt-4 me-2">Delete Comic</button></a>
 
-            </form>
-          </div>
+              </form>
 
-          <div>
-            @if (session('success'))
-              <div class="alert alert-success my-3">
-                {{ session('success') }}
-              </div>
-            @endif
+            </div>
+
+
           </div>
 
         </div>

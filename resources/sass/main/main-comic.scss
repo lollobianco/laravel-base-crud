@@ -31,8 +31,15 @@
 
 .cover{
    position: absolute;
-   top: 288px;
+   top: 300px;
    border: 2px solid white;
+   max-width: 192px;
+   max-height: 291px;
+}
+
+.cover img{
+   max-width: 192px;
+   max-height: 267px;
 }
 
 .gallery{
