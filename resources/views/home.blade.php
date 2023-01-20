@@ -14,7 +14,7 @@
 
               <div class="card-container d-flex flex-column">
                 <a href="{{route('comics.show', $element->id )}}">
-                  <div class="card-image mb-3"> <img class="image-comic" src="{{$element['thumb']}}" alt=""></div>
+                  <div class="card-image mb-3"> <img class="image-comic" src="{{$element['thumb']}}" alt="{{$element['title']}}"></div>
                   <div class="card-text text-white mb-4">{{$element['title']}}</div>
                 </a>
               </div>
@@ -23,8 +23,9 @@
 
             </div>
 
-            <div class="text-center">
-                <button class="load-more-button">LOAD MORE</button>
+            <div class="d-flex justify-content-center">
+                {{-- <button class="load-more-button">LOAD MORE</button> --}}
+                {{ $comics->links() }}
             </div>
 
         </div>

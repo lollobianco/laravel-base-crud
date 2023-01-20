@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function index(){
 
-        $comics = Comic::All();
+        $comics = Comic::Paginate(12);
 
 
         return view('home', compact('comics'));
