@@ -1,81 +1,98 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{$comics['title']}}
+  {{ $comics['title'] }}
 @endsection
 
 @section('main')
+  <div class="blue-bar"></div>
 
-    <div class="blue-bar"></div>
+  <section class="info-section">
 
-    <section class="info-section">
+    <div class="container">
 
-        <div class="container">
+      <div class="d-flex flex-column cover">
+        <img src="{{ $comics['thumb'] }}" alt="">
+        <div class="gallery">VIEW GALLERY</div>
+      </div>
 
-            <div class="d-flex flex-column cover">
-                <img src="{{$comics['thumb']}}" alt="">
-                <div class="gallery">VIEW GALLERY</div>
-            </div>
+      <div class="d-flex justify-content-between">
 
-            <div class="d-flex justify-content-between">
+        <div class="col-8 left-info d-flex flex-column">
 
-                <div class="col-8 left-info d-flex flex-column">
+          <h1 class="comic-title">{{ $comics['title'] }}</h1>
 
-                    <h1 class="comic-title">{{$comics['title']}}</h1>
+          <div class="green-bar mt-3 px-4 d-flex">
 
-                    <div class="green-bar mt-3 px-4 d-flex">
+            <div class="col-9 py-3 separator">
 
-                        <div class="col-9 py-3 separator">
+              <div class="d-flex justify-content-between pe-4">
 
-                            <div class="d-flex justify-content-between pe-4">
+                <div>U.S. Price: {{ $comics['price'] }} $</div>
 
-                                <div>U.S. Price: {{$comics['price']}} $</div>
+                <div>AVAILABLE</div>
 
-                                <div>AVAILABLE</div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-3 py-3 ps-4 check-availability">Check Availability</div>
-
-                    </div>
-
-                    <div>
-                        <p class="mt-3">{{$comics['description']}}</p>
-                    </div>
-
-                    <div class="mt-3">
-                        <div>Sale Date: {{$comics['sale_date']}}</div>
-
-                        <div>Type: {{$comics['type']}}</div>
-                    </div>
-
-                    <div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-4 right-info">
-
-                    <div class="d-flex flex-column ps-5">
-
-                        <div class="fw-semibold text-end">ADVERTISEMENT</div>
-
-                        <img src="{{ asset('images/advertisement.jpg') }}" alt="adv">
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
+
+            <div class="col-3 py-3 ps-4 check-availability">Check Availability</div>
+
+          </div>
+
+          <div>
+            <p class="mt-3">{{ $comics['description'] }}</p>
+          </div>
+
+          <div class="mt-3">
+            <div>Sale Date: {{ $comics['sale_date'] }}</div>
+
+            <div>Type: {{ $comics['type'] }}</div>
+          </div>
+
+          <div class="d-felx">
+            <a href="{{ route('comics.edit', $comics->id) }}"><button type="button"
+                class="btn btn-outline-warning mt-4 me-2"">Modify Comic</button></a>
+            
+            <form action="{{route('comics.destroy', $comics->id)}}" method="POST">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-outline-danger mt-4 me-2">Delete Comic</button></a>
+
+            </form>
+          </div>
+
+          <div>
+            @if (session('success'))
+              <div class="alert alert-success my-3">
+                {{ session('success') }}
+              </div>
+            @endif
+          </div>
 
         </div>
 
-    </section>
+        <div class="col-4 right-info">
 
-    {{-- <section class="info2-section">
+          <div class="d-flex flex-column ps-5">
+
+            <div class="fw-semibold text-end">ADVERTISEMENT</div>
+
+            <img src="{{ asset('images/advertisement.jpg') }}" alt="adv">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  {{-- <section class="info2-section">
 
         <div class="container d-flex">
 
@@ -151,36 +168,35 @@
 
     </section> --}}
 
-    <section class="prefooter-section">
+  <section class="prefooter-section">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="d-flex">
+      <div class="d-flex">
 
-                <div class="col-3 d-flex justify-content-between prefooter-container">
-                    <span class="fw-bold image-title">DIGITAL COMICS</span>
-                    <div class="fake-img"></div>
-                </div>
-
-                <div class="col-3 d-flex justify-content-between prefooter-container">
-                    <span class="fw-bold image-title">SHOP DC</span>
-                    <div class="fake-img"></div>
-                </div>
-
-                <div class="col-3 d-flex justify-content-between prefooter-container">
-                    <span class="fw-bold image-title">COMIC SHOP LOCATOR</span>
-                    <div class="fake-img"></div>
-                </div>
-
-                <div class="col-3 d-flex justify-content-between prefooter-container prefooter-container-last">
-                    <span class="fw-bold image-title">SUBSCRIPTION</span>
-                    <div class="fake-img"></div>
-                </div>
-
-            </div>
-
+        <div class="col-3 d-flex justify-content-between prefooter-container">
+          <span class="fw-bold image-title">DIGITAL COMICS</span>
+          <div class="fake-img"></div>
         </div>
 
-    </section>
+        <div class="col-3 d-flex justify-content-between prefooter-container">
+          <span class="fw-bold image-title">SHOP DC</span>
+          <div class="fake-img"></div>
+        </div>
 
+        <div class="col-3 d-flex justify-content-between prefooter-container">
+          <span class="fw-bold image-title">COMIC SHOP LOCATOR</span>
+          <div class="fake-img"></div>
+        </div>
+
+        <div class="col-3 d-flex justify-content-between prefooter-container prefooter-container-last">
+          <span class="fw-bold image-title">SUBSCRIPTION</span>
+          <div class="fake-img"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 @endsection

@@ -61,9 +61,10 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comic $id)
+    public function edit($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        return view('edit', compact('comic'));
     }
 
     /**
@@ -73,9 +74,27 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $comic = Comic::findOrFail($id);
+        $request->validate(
+
+            [
+                'title' => 'required|max:50',
+                'description' => 'required',
+                'thumb' => 'required',
+                'price' => 'required|max:7',
+                'series' => 'required|max:20',
+                'sale_date' => 'required|max:10',
+                'type' => 'required|max:20',
+            ]
+
+        );
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic->id)->with('success', "You have successfully modified: $comic->title");
     }
 
     /**
@@ -84,8 +103,10 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
+    public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+        return redirect()->route('home')->with('success', "You have successfully deleted: $comic->title");
     }
 }
