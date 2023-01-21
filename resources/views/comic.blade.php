@@ -49,7 +49,7 @@
           </div>
 
           <div>
-            <p class="mt-3">{{ $comics['description'] }}</p>
+            <p class="mt-3 description">{{ $comics['description'] }}</p>
           </div>
 
           <div class="mt-3">

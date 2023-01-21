@@ -2,19 +2,20 @@
 @section('page-title', 'Home DC-Comics')
 
 @section('main')
+
+  @if (session('success'))
+    <div class="container d-flex justify-content-center pt-5 alert-container">
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    </div>
+  @endif
+
   <div class="comics-section">
 
     <div class="position-add-button container">
       <a href="{{ route('comics.create') }}"><button class="add-button">ADD COMIC</button></a>
     </div>
-
-    @if (session('success'))
-      <div class="container d-flex justify-content-center pt-5">
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div>
-      </div>
-    @endif
 
     <div class="container py-5">
 
