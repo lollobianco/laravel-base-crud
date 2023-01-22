@@ -30,10 +30,11 @@
     </ul>
 
     <div class="d-flex align-items-center">
-      <div class="search-container">
+      <form class="search-container" type="get" action="{{url('/search')}}">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" class="search">
-      </div>
+        <input type="search" class="search" name="query" placeholder="Search Comics">
+        <button type="submit" class="d-none"></button>
+      </form>
     </div>
 
   </nav>
